@@ -3,7 +3,7 @@ pipeline {
     
 	 environment {
         WORKSPACE = '/var/lib/jenkins/workspace'
-         RepoName= ExtractRepoName()  
+         RepoName = scm.getUserRemoteConfigs()[0].getUrl().tokenize('/').last().split("\\.")[0]
 	 }
 	
 	stages {
@@ -27,9 +27,4 @@ pipeline {
             }
         }
     }
-}
-
-def string ExtractRepoName()
-{
-return scm.getUserRemoteConfigs()[0].getUrl().tokenize('/').last().split("\\.")[0]
 }
