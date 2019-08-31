@@ -8,14 +8,14 @@ file=$1
 fi
 
 ARTIFACTS_HOME=/artifacts/
-
+mkdir 
 while read line 
 do
 echo "Files to be built are :"
 echo $file/$line
 if [ ! -d "$ARTIFACTS_HOME/database/staging/$$" ]
 then
-mkdir "$ARTIFACTS_HOME/database/staging/$$"
+mkdir -p "$ARTIFACTS_HOME/database/staging/$$"
 fi
 cp $file/$line $ARTIFACTS_HOME/database/staging/$$/
 done < $file/release
@@ -24,4 +24,4 @@ echo "Creating the artifacts for mentioned files"
 
 cd $ARTIFACTS_HOME/database/staging/$$/
 
-tar  -cvfz SNAPSHOT_01_`date +%H%M%Y`.tar.gz $ARTIFACTS_HOME/database/staging/$$/
+tar  -cvfz SNAPSHOT_01.tar.gz $ARTIFACTS_HOME/database/staging/$$/
