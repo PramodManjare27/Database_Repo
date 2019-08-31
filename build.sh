@@ -27,3 +27,4 @@ cd $ARTIFACTS_HOME/database/staging/$$/
 tar  -cvf database_build_SNAPSHOT_$$.tar ./*
 gzip database_build_SNAPSHOT_$$.tar
 mv database_build_SNAPSHOT_$$.tar.gz ..
+echo "$ARTIFACTS_HOME/database/staging/database_build_SNAPSHOT_$$.tar.gz" > /var/lib/jenkins/workspace/Database_repo/arguments_temp
