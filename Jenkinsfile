@@ -2,7 +2,7 @@ pipeline {
     agent any
     
 	 environment {
-        WORKSPACE = '/var/lib/jenkins/workspace/Database_Repo'
+        WORKSPACE = '/var/lib/jenkins/workspace/Database_repo'
          
 	 }
 	
@@ -15,6 +15,7 @@ pipeline {
 		    	        sh "echo Hello from the shell"
                                 sh "hostname"
                                 sh "id"
+		                sh "chmod 755 $WORKSPACE/build.sh"
 		                sh ". $WORKSPACE/build.sh"
             }
         }
