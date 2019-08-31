@@ -2,8 +2,8 @@ pipeline {
     agent any
     
 	 environment {
-        WORKSPACE = '/var/lib/jenkins/workspace'
-         RepoName = scm.getUserRemoteConfigs()[0].getUrl().tokenize('/').last().split("\\.")[0]
+        WORKSPACE = '/var/lib/jenkins/workspace/Database_Repo'
+         
 	 }
 	
 	stages {
@@ -12,7 +12,10 @@ pipeline {
             steps {
                 echo 'build phase'
 				echo "$WORKSPACE"
-		    	        echo "$RepoName"
+		    	        sh "echo Hello from the shell"
+                                sh "hostname"
+                                sh "id"
+		                sh ". $WORKSPACE/build.sh"
             }
         }
 		
