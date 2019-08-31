@@ -2,7 +2,7 @@ pipeline {
     agent any
     
 	 environment {
-        WORKSPACE = '/var/lib/jenkins/workspace/Database_repo'
+        v_WORKSPACE = '/var/lib/jenkins/workspace/Database_repo'
          
 	 }
 	
@@ -11,12 +11,12 @@ pipeline {
 		stage('Build') {
             steps {
                 echo 'build phase'
-				echo "$WORKSPACE"
+				echo "$v_WORKSPACE"
 		    	        sh "echo Hello from the shell"
                                 sh "hostname"
                                 sh "id"
-		                sh "chmod 755 $WORKSPACE/build.sh"
-		                sh ". $WORKSPACE/build.sh"
+		                sh "chmod 755 $v_WORKSPACE/build.sh"
+		                sh ". $v_WORKSPACE/build.sh $v_WORKSPACE"
             }
         }
 		
