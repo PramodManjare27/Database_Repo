@@ -8,7 +8,7 @@ file=$1
 fi
 
 ARTIFACTS_HOME=/artifacts/
-mkdir 
+ 
 while read line 
 do
 echo "Files to be built are :"
