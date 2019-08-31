@@ -1,7 +1,27 @@
 #!/bin/sh
+
+if [ -z "$1" ]
+then
 file=`cat /var/lib/jenkins/workspace/Database_repo/arguments_temp`
+else
+file=$1
+fi
+
+ARTIFACTS_HOME=/artifacts/
+
 while read line 
 do
 echo "Files to be built are :"
-echo $line
+echo $file/$line
+if [ ! -d "$ARTIFACTS_HOME/database/staging/$$" ]
+then
+mkdir "$ARTIFACTS_HOME/database/staging/$$"
+fi
+cp $file/$line $ARTIFACTS_HOME/database/staging/$$/
 done < $file/release
+
+echo "Creating the artifacts for mentioned files"
+
+cd $ARTIFACTS_HOME/database/staging/$$/
+
+tar  -cvfz SNAPSHOT_01_`date +%H%M%Y`.tar.gz $ARTIFACTS_HOME/database/staging/$$/
