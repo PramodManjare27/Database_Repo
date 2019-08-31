@@ -24,4 +24,6 @@ echo "Creating the artifacts for mentioned files"
 
 cd $ARTIFACTS_HOME/database/staging/$$/
 
-tar  -cvfz SNAPSHOT_01.tar.gz $ARTIFACTS_HOME/database/staging/$$/
+tar  -cvf database_build_SNAPSHOT_$$.tar ./*
+gzip database_build_SNAPSHOT_$$.tar
+mv database_build_SNAPSHOT_$$.tar.gz ..
