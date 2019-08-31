@@ -3,6 +3,7 @@ pipeline {
     
 	 environment {
         v_WORKSPACE = '/var/lib/jenkins/workspace/Database_repo'
+        v_File_Version = '1'
          
 	 }
 	
@@ -18,6 +19,11 @@ pipeline {
                                 sh "id"
 		                sh "chmod 755 $v_WORKSPACE/build.sh"
 		                sh ". $v_WORKSPACE/build.sh $v_WORKSPACE"
+	    		script {
+          // trim removes leading and trailing whitespace from the string
+          				v_File_Version = readFile("$v_WORKSPACE/arguments_temp").trim()
+        				}
+        			echo "${v_File_Version}" 
 		                sh "rm -f $v_WORKSPACE/arguments_temp"
             }
         }
