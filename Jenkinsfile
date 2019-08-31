@@ -1,14 +1,17 @@
 pipeline {
     agent any
     
+	 environment {
+        WORKSPACE = '/var/lib/jenkins/workspace'
+           }
+	
 	stages {
     
 		
 		stage('Build') {
             steps {
                 echo 'build phase'
-				def workspace = pwd() 
-				echo "$workspace"
+				echo "$WORKSPACE"
             }
         }
 		
