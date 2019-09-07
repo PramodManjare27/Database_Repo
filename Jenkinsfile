@@ -62,6 +62,10 @@ pipeline {
 		stage('Deploying database pacakge to Sandbox') {
             		steps {
                 		echo "Package to be deployed is ${v_File_Version}"
+                                sh "echo ${v_File_Version} > $v_WORKSPACE/arguments_temp"
+                                sh "/artifacts/database/deploy.sh"
+				sh "rm -f $v_WORKSPACE/arguments_temp"
+
 			     }
         		}
 		
