@@ -1,13 +1,13 @@
 create or replace package abc
 as 
-procedure abcde
+procedure abcde (in_arg varchar2)
 end;
 /
-
+show errors;
 create or replace package body abc
-as 
-proceudre abcde
+proceudre abcde (in_arg varchar2)
 begin
 null;
 end;
 /
+show errors;
