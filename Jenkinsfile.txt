@@ -1,0 +1,28 @@
+pipeline {
+    agent any
+    
+	stages {
+        stage('Checkout Source Phase') {
+            steps {
+                checkout([$class: 'GitSCM', branches: [[name: 'remotes/origin/feature**']], doGenerateSubmoduleConfigurations: false, extensions: [[$class: 'CleanBeforeCheckout']], submoduleCfg: [], userRemoteConfigs: [[url: 'https://github.com/PramodManjare27/Database_Repo.git']]])
+            }
+        }
+		
+		stage('Packaging Phase') {
+            steps {
+                echo 'build phase'
+            }
+        }
+		
+        stage('Quality Check Phase') {
+            steps {
+                echo 'Testing'
+            }
+        }
+        stage('Atrifactory Push Phase') {
+            steps {
+                echo 'Deploying'
+            }
+        }
+    }
+}
