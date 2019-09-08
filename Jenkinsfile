@@ -4,6 +4,8 @@ pipeline {
 	 environment {
         v_WORKSPACE = '/var/lib/jenkins/workspace/Database_repo'
         v_File_Version = '1'
+        SONAR_SCANNER_VERSION='4.0.0.1744'
+        SONAR_SCANNER_HOME="/var/lib/jenkins/.sonar/sonar-scanner-$SONAR_SCANNER_VERSION-linux"
          
 	 }
 	
@@ -68,6 +70,15 @@ pipeline {
 
 			     }
         		}
+		
+		stage('Running SonarQube for Code Quality and Coverage') {
+            		steps {
+                		echo "Code Quality Checks"
+				sh "/artifacts/database/sonar_scan.sh"
+			     }
+        		}
+		
+		
 		
 		stage('Running utPLSQL tests') {
             		steps {
