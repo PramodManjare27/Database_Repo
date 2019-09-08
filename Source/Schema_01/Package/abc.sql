@@ -13,6 +13,12 @@ null;
 loop
 select 1 into v_int from dual;
 end loop;	
+
+
+loop
+select 1 into v_int from dual;
+end loop;
+
 end;
 end;
 /
