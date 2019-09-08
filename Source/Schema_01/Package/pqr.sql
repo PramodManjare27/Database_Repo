@@ -1,13 +1,13 @@
-create or replace package abc
+create or replace package pqr
 as 
 procedure abcde (in_arg varchar2);
 end;
 /
 show errors;
 
-create or replace package body abc
+create or replace package body pqr
 proceudre abcde (in_arg varchar2) as
-v_int number;
+v_int varchar2;
 begin
 null;
 loop
