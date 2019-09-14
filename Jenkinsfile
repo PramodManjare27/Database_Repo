@@ -1,6 +1,6 @@
 pipeline {
-    agent any
-    
+    //agent any
+    agent { docker image 'pramodmanjare27/oracle_client_linux:1.0.0.0' }
 	 environment {
         v_WORKSPACE = '/var/lib/jenkins/workspace/Database_repo'
         v_File_Version = '1'
