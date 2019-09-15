@@ -1,9 +1,10 @@
 pipeline {
     agent {
     docker {
-        image 'pramodmanjare27/oracle_client_linux:1.0.0.0'
-        registryUrl 'https://hub.docker.com/'
-        registryCredentialsId 'd532392b-bdbf-444a-8bc3-bb5a173a594a'
+        //image 'pramodmanjare27/oracle_client_linux:1.0.0.0'
+	    image 'node:7-alpine'    
+        //registryUrl 'https://hub.docker.com/'
+        //registryCredentialsId 'd532392b-bdbf-444a-8bc3-bb5a173a594a'
     }
 }
 	 environment {
