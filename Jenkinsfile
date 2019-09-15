@@ -1,7 +1,11 @@
 pipeline {
-    //agent any
-    agent { dockerfile true 
-	  }
+    agent {
+    docker {
+        image 'pramodmanjare27/oracle_client_linux:1.0.0.0'
+        registryUrl 'https://hub.docker.com/'
+        registryCredentialsId 'd532392b-bdbf-444a-8bc3-bb5a173a594a'
+    }
+}
 	 environment {
         v_WORKSPACE = '/var/lib/jenkins/workspace/Database_repo'
         v_File_Version = '1'
