@@ -1,28 +1,11 @@
 pipeline {
-    agent any
-    
-	 environment {
-        WORKSPACE = '/var/lib/jenkins/workspace'
-           }
-	
-	stages {
-    
-		
-		stage('Build') {
-            steps {
-                echo 'build phase'
-				echo "$WORKSPACE"
-            }
-        }
-		
+    agent {
+        docker { image 'node:7-alpine' }
+    }
+    stages {
         stage('Test') {
             steps {
-                echo 'Testing'
-            }
-        }
-        stage('Deploy') {
-            steps {
-                echo 'Deploying'
+                sh 'node --version'
             }
         }
     }
