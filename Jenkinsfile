@@ -24,17 +24,8 @@ pipeline {
                     def container = image.run('-p 8055')
                     def contport = container.port(8055)
                     println image.id + " container is running at host port, " + contport
-                     //   docker.withRegistry("${env.REGISTRY}", 'docker-hub-entree') {
-                      //      image.push("${GIT_HASH}")
-                       //     if ( "${env.BRANCH_NAME}" == "master" ) {
-                        //        image.push("LATEST")
-                         //   }
-                       // }
-                        currentBuild.result = "SUCCESS"
-                    } else {
-                        println "Humans are mortals."
                         currentBuild.result = "FAILURE"
-                    }
+                   }
                 }
             }
         }
