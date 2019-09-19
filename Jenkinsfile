@@ -24,7 +24,7 @@ pipeline {
                  //   def container = image.run('-p 8055')
                   //  def contport = container.port(8055)
                  //   println image.id + " container is running at host port, " + contport
-                        currentBuild.result = "FAILURE"
+                  //      currentBuild.result = "FAILURE"
                    //}
                 }
             }
