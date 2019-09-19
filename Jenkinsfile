@@ -11,21 +11,21 @@ pipeline {
         
         stage('build') {
             steps {
-                script {
-                    image = docker.build("${IMAGE}")
-                    println "Newly generated image, " + image.id
-                }
+              //  script {
+                //    image = docker.build("${IMAGE}")
+                  //  println "Newly generated image, " + image.id
+               // }
             }
         }
         stage('test') {
             steps {
-                script {
+               // script {
                     // https://hub.docker.com/r/tutum/hello-world/
-                    def container = image.run('-p 8055')
-                    def contport = container.port(8055)
-                    println image.id + " container is running at host port, " + contport
+                 //   def container = image.run('-p 8055')
+                  //  def contport = container.port(8055)
+                 //   println image.id + " container is running at host port, " + contport
                         currentBuild.result = "FAILURE"
-                   }
+                   //}
                 }
             }
         }
